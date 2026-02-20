@@ -177,6 +177,13 @@ const PhoneIcon = () => (
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
   </svg>
 )
+const DownloadIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+    <polyline points="7 10 12 15 17 10" />
+    <line x1="12" y1="15" x2="12" y2="3" />
+  </svg>
+)
 
 // ─────────────────────────── Chart data per filter ───────────────────────────
 import { fetchChartData } from './services/api'
@@ -395,10 +402,22 @@ function App() {
           ))}
         </div>
 
-        <button className="lang-toggle" onClick={toggleLang} title="Cambiar idioma / Switch language">
-          <GlobeIcon />
-          <span>{lang === 'es' ? 'EN' : 'ES'}</span>
-        </button>
+        <div className="navbar-actions">
+          <a
+            className="apk-btn"
+            href="https://drive.google.com/drive/folders/13suv9voEgRpcNgBATTZzprmAAalNq16V?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            title={lang === 'es' ? 'Descargar APK' : 'Download APK'}
+          >
+            <DownloadIcon />
+            <span>{lang === 'es' ? 'Descargar APK' : 'Download APK'}</span>
+          </a>
+          <button className="lang-toggle" onClick={toggleLang} title="Cambiar idioma / Switch language">
+            <GlobeIcon />
+            <span>{lang === 'es' ? 'EN' : 'ES'}</span>
+          </button>
+        </div>
       </nav>
 
       {/* ── HERO ─────────────────────────────────────────── */}
